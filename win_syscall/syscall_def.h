@@ -20,7 +20,10 @@ NTSTATUS name (Args... args) \
 	{\
 		if (info.first == hash_const("" #name ""))\
 		{\
-			return detail::nativeCall<NTSTATUS>(info.second, args...);\
+			if (info.second)\
+			{\
+				return detail::nativeCall<NTSTATUS>(info.second, args...); \
+			}\
 		}\
 	}\
 	return 0xC0000001L;\
