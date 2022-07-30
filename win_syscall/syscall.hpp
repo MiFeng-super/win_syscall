@@ -110,7 +110,7 @@ namespace syscall
 #ifdef _WIN64
 				return AnyCall::std_call<T>(func, args...);
 #else
-				return X64Call(func, sizeof...(Args), (DWORD)args...);
+				return X64Call(func, sizeof...(Args), (DWORD64)args...);
 #endif
 			}
 			else
